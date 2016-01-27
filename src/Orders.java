@@ -12,12 +12,11 @@
 
 import javax.xml.bind.JAXBException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
 
 public class Orders {
     Ordering_data ordering_data = new Ordering_data();
-    ArrayList<Product> products = new ArrayList<Product>();
-
+    ArrayList<String> products_list_name = new ArrayList<>();
     Orders() {
         try {
             ordering_data = new Util().getData(ordering_data);
@@ -26,50 +25,39 @@ public class Orders {
             System.out.println("Ошибка чтения из файла!");
         }
     }
-    public HashMap<Product, Integer> merger_servings(){
-        HashMap<Product, Integer> merger_product = new HashMap<Product, Integer>();
-        String name_dish;
-        for (Worker workers : ordering_data.getWorkers_list()){
-            for (HashMap.Entry<Product, Integer> product_portion : workers.getMenu().entrySet()){
-                for (HashMap.Entry<Product, Integer> repeating_portion : workers.getMenu().entrySet(){
-                    if(product_portion.getKey().equals())
-                }
-            }
-        }
-        return null;
-    }
 
-    public void printPlacedOrder(){
-
-    }
-
-/*        public void printPlacedOrder(){
-            ArrayList<Worker> workers_list = new Util().getData_Worker();
-            for (int workers = 0; workers < workers_list.size(); workers++) {
-                for (Map.Entry<Product, Integer> product_portion : workers_list.get(workers).getMenu().entrySet()) {
-                    if (chek_Product(product_portion.getKey())) break;
-                    else {
-                        merger_servings.put(product_portion.getKey(), product_portion.getValue());
-                            if (merger_servings.keySet().equals(product_portion.getKey())) {
-                                merger_servings.get(product_portion.getValue() + 1);
-                            }
+    public void printPlacedOrder() {
+        int price;
+        int quantity = 0;
+        for (int iter_name = 0; iter_name < products_list_name.size(); iter_name++){
+            for (Worker workers : ordering_data.getWorkers_list()) {
+                for (Map.Entry<Product, Integer> products : workers.getMenu().entrySet()) {
+                    if (products.getKey().getName().equals(products_list_name.get(iter_name))) {
+                        quantity = quantity + products.getValue();
+                        price = products.getKey().getPrice();
                     }
-                    products.add(product_portion.getKey());
                 }
             }
-
-            for (Map.Entry<Product, Integer> pair : merger_servings.entrySet()){
-                System.out.println(pair.getKey() + " " + pair.getValue());
-            }
-        }*/
+            System.out.printf("%c%c", 124, 862);
+        }
+    }
 
 
-        public  void printReceivedOrder(){
+    public  void printReceivedOrder(){
 
         }
-        public boolean chek_Product(Product product){
-           for (Product p : products){
-               if(p.equals(product)) return true;
+
+    public void merger_servings() {
+        for (Worker workers : ordering_data.getWorkers_list()) {
+            for (Map.Entry<Product, Integer> products : workers.getMenu().entrySet()){
+                if(chek_Product(products.getKey().getName())) break;
+                else products_list_name.add(products.getKey().getName());
+            }
+        }
+    }
+        public boolean chek_Product(String product_name){
+           for (String p : products_list_name){
+               if(p.equals(product_name)) return true;
            }
             return false;
         }

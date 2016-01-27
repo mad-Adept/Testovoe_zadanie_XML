@@ -6,7 +6,7 @@ import java.io.File;
 
 public class Util {
 
-    private final static String PATH = "src\\main\\resources\\";
+    private final static String PATH = "src\\resources\\";
 
     public void setData(Ordering_data data) throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(data.getClass());

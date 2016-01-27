@@ -8,7 +8,7 @@ public class Worker {
 
     private String firstName;
     private String secondName;
-    private HashMap<Product, Integer> menu = new HashMap<Product, Integer>();
+    private HashMap<Product, Integer> menu = new HashMap();
 
     public Worker() {
     }
