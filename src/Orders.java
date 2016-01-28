@@ -28,8 +28,14 @@ public class Orders {
 
     public void printPlacedOrder() {
         int price;
-        int quantity = 0;
+        int quantity;
+        int suma_zakaza = 0;
+        merger_servings();
+        printSymbol("bottom");
+        System.out.println("|       Наименование продукта       | Порции |Стоимость|");
         for (int iter_name = 0; iter_name < products_list_name.size(); iter_name++){
+            quantity = 0;
+            price = 0;
             for (Worker workers : ordering_data.getWorkers_list()) {
                 for (Map.Entry<Product, Integer> products : workers.getMenu().entrySet()) {
                     if (products.getKey().getName().equals(products_list_name.get(iter_name))) {
@@ -38,13 +44,31 @@ public class Orders {
                     }
                 }
             }
-            System.out.printf("%c%c", 124, 862);
+            suma_zakaza = suma_zakaza + (quantity * price);
+            System.out.printf("|%-35s|%8d|%9d|\n", products_list_name.get(iter_name), quantity, price);
         }
+        printSymbol("top");
+        System.out.printf("Общая сумма заказов: " + suma_zakaza);
     }
 
 
     public  void printReceivedOrder(){
-
+        String name;
+        String ordered_dishes;
+        int cost;
+        printSymbol("bottom");
+        System.out.println("|  Имя сотрудника   | Заказаные блюда |Стоимость|");
+            for (Worker workers : ordering_data.getWorkers_list()) {
+                cost = 0;
+                ordered_dishes = "";
+                name = workers.getSecondName()+ " " + workers.getFirstName();
+                for (Map.Entry<Product, Integer> products : workers.getMenu().entrySet()){
+                    ordered_dishes = ordered_dishes + products.getKey().getName() + ", ";
+                    cost = cost + products.getKey().getPrice();
+                }
+                System.out.printf("|%-15s|%-25s|%9d|\n", name, ordered_dishes, cost);
+            }
+        printSymbol("top");
         }
 
     public void merger_servings() {
@@ -55,11 +79,21 @@ public class Orders {
             }
         }
     }
-        public boolean chek_Product(String product_name){
+    public boolean chek_Product(String product_name){
            for (String p : products_list_name){
                if(p.equals(product_name)) return true;
            }
             return false;
         }
+
+    public void printSymbol(String value){
+        char c;
+        if(value.equalsIgnoreCase("top")) c = 175;
+        else c = 95;
+        for(int i = 0; i < 56; i++){
+            System.out.print(c);
+        }
+        System.out.println();
     }
+}
 
