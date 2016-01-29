@@ -2,7 +2,7 @@ import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 
 @XmlType(name = "Product", propOrder = {"name", "weight", "price"})
-public class Product {
+public class Product implements Comparable<Product>{
     private String name;
     private int weight;
     private int price;
@@ -21,7 +21,7 @@ public class Product {
         namelist_products.add(name);
     }
 
-    public boolean check_name (String name){
+    private boolean check_name (String name){
         for (String iterator : namelist_products){
             if (iterator.equals(name)) return true;
         }
@@ -77,6 +77,12 @@ public class Product {
                 ", weight=" + weight +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+
+    public int compareTo(Product o) {
+        return this.getName().compareTo(o.getName());
     }
 }
 

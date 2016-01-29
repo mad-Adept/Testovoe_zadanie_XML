@@ -44,7 +44,7 @@ public class Ordering_data {
         Product sup_kuriniy_s_gribami = new Product("Суп куриный с грибами", 250, 34);
         Product sup_bolgarskiy_vegetarianskiy = new Product("Суп болгарский вегетарианский", 250, 21);
         Product ribnoe_file_s_pomidorkoy = new Product("Рыбное филе с помидоркой", 80, 54);
-        Product pechen_po_korolevski = new Product("Печень по королевски", 150, 54);
+        Product pechen_po_korolevski = new Product("Печень по королевски", 54, 54);
         Product svinina_zapechenaya = new Product("Свинина запеченная \"По-гусарски\"", 80, 68);
         Product grecha_s_maslom = new Product("Греча с маслом", 170, 17);
         Product makarony_otvarnye = new Product("Макароны отварные", 170, 15);
@@ -81,4 +81,11 @@ public class Ordering_data {
     svinina_zapechenaya, grecha_s_maslom, makarony_otvarnye, ris_otvarnoy_s_maslom);
     }*/
 
+    @Override
+    public String toString() {
+        return "Ordering_data{" +
+                "workers_list=" + workers_list +
+                ", products_list=" + products_list +
+                '}';
+    }
 }

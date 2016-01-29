@@ -1,6 +1,6 @@
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.Map;
 
 @XmlType(name = "Worker", propOrder = {"firstName", "secondName", "menu"})
@@ -8,7 +8,7 @@ public class Worker {
 
     private String firstName;
     private String secondName;
-    private HashMap<Product, Integer> menu = new HashMap();
+    private TreeMap<Product, Integer> menu = new TreeMap();
 
     public Worker() {
     }
@@ -25,7 +25,7 @@ public class Worker {
         else menu.put(product_name, 1);
     }
 
-    public boolean chek_servings(Product product_name){
+    private boolean chek_servings(Product product_name){
         for (Map.Entry<Product, Integer> iterator : menu.entrySet()){
             if (iterator.getKey().equals(product_name)) return true;
         }
@@ -46,10 +46,10 @@ public class Worker {
         this.secondName = secondName;
     }
     @XmlElement(name = "menu")
-    public HashMap<Product, Integer> getMenu() {
+    public TreeMap<Product, Integer> getMenu() {
         return menu;
     }
-    public void setMenu(HashMap<Product, Integer> menu) {
+    public void setMenu(TreeMap<Product, Integer> menu) {
         this.menu = menu;
     }
 

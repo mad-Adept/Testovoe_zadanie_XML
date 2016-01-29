@@ -7,16 +7,8 @@
             <entry>
                 <key>
                     <name>Печень по королевски</name>
-                    <weight>150</weight>
+                    <weight>54</weight>
                     <price>54</price>
-                </key>
-                <value>1</value>
-            </entry>
-            <entry>
-                <key>
-                    <name>Салат изюменка</name>
-                    <weight>100</weight>
-                    <price>35</price>
                 </key>
                 <value>1</value>
             </entry>
@@ -36,6 +28,14 @@
                 </key>
                 <value>1</value>
             </entry>
+            <entry>
+                <key>
+                    <name>Салат изюменка</name>
+                    <weight>100</weight>
+                    <price>35</price>
+                </key>
+                <value>1</value>
+            </entry>
         </menu>
     </workers_list>
     <workers_list>
@@ -44,25 +44,9 @@
         <menu>
             <entry>
                 <key>
-                    <name>Свинина запеченная "По-гусарски"</name>
-                    <weight>80</weight>
-                    <price>68</price>
-                </key>
-                <value>1</value>
-            </entry>
-            <entry>
-                <key>
-                    <name>Салат лукошко</name>
-                    <weight>100</weight>
-                    <price>40</price>
-                </key>
-                <value>1</value>
-            </entry>
-            <entry>
-                <key>
-                    <name>Суп куриный с грибами</name>
-                    <weight>250</weight>
-                    <price>34</price>
+                    <name>Макароны отварные</name>
+                    <weight>170</weight>
+                    <price>15</price>
                 </key>
                 <value>1</value>
             </entry>
@@ -76,9 +60,25 @@
             </entry>
             <entry>
                 <key>
-                    <name>Макароны отварные</name>
-                    <weight>170</weight>
-                    <price>15</price>
+                    <name>Салат лукошко</name>
+                    <weight>100</weight>
+                    <price>40</price>
+                </key>
+                <value>1</value>
+            </entry>
+            <entry>
+                <key>
+                    <name>Свинина запеченная "По-гусарски"</name>
+                    <weight>80</weight>
+                    <price>68</price>
+                </key>
+                <value>1</value>
+            </entry>
+            <entry>
+                <key>
+                    <name>Суп куриный с грибами</name>
+                    <weight>250</weight>
+                    <price>34</price>
                 </key>
                 <value>1</value>
             </entry>
@@ -98,9 +98,9 @@
             </entry>
             <entry>
                 <key>
-                    <name>Суп болгарский вегетарианский</name>
-                    <weight>250</weight>
-                    <price>21</price>
+                    <name>Рулет с изюмом</name>
+                    <weight>75</weight>
+                    <price>15</price>
                 </key>
                 <value>1</value>
             </entry>
@@ -114,9 +114,9 @@
             </entry>
             <entry>
                 <key>
-                    <name>Рулет с изюмом</name>
-                    <weight>75</weight>
-                    <price>15</price>
+                    <name>Суп болгарский вегетарианский</name>
+                    <weight>250</weight>
+                    <price>21</price>
                 </key>
                 <value>1</value>
             </entry>
@@ -128,9 +128,25 @@
         <menu>
             <entry>
                 <key>
+                    <name>Макароны отварные</name>
+                    <weight>170</weight>
+                    <price>15</price>
+                </key>
+                <value>1</value>
+            </entry>
+            <entry>
+                <key>
                     <name>Печень по королевски</name>
-                    <weight>150</weight>
+                    <weight>54</weight>
                     <price>54</price>
+                </key>
+                <value>1</value>
+            </entry>
+            <entry>
+                <key>
+                    <name>Пирог с повидлом</name>
+                    <weight>60</weight>
+                    <price>13</price>
                 </key>
                 <value>1</value>
             </entry>
@@ -147,22 +163,6 @@
                     <name>Суп куриный с грибами</name>
                     <weight>250</weight>
                     <price>34</price>
-                </key>
-                <value>1</value>
-            </entry>
-            <entry>
-                <key>
-                    <name>Пирог с повидлом</name>
-                    <weight>60</weight>
-                    <price>13</price>
-                </key>
-                <value>1</value>
-            </entry>
-            <entry>
-                <key>
-                    <name>Макароны отварные</name>
-                    <weight>170</weight>
-                    <price>15</price>
                 </key>
                 <value>1</value>
             </entry>
@@ -220,7 +220,7 @@
     </products_list>
     <products_list>
         <name>Печень по королевски</name>
-        <weight>150</weight>
+        <weight>54</weight>
         <price>54</price>
     </products_list>
     <products_list>
