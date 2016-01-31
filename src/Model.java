@@ -2,10 +2,11 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
+import java.util.Collections;
 
-@XmlRootElement(name = "Ordering_data")
+@XmlRootElement(name = "Model")
 @XmlType(propOrder = {"workers_list", "products_list"})
-public class Ordering_data {
+public class Model {
 
     ArrayList<Worker> workers_list = new ArrayList<Worker>();
     ArrayList<Product> products_list = new ArrayList<Product>();
@@ -26,9 +27,9 @@ public class Ordering_data {
         this.products_list = products_list;
     }
 
-    Ordering_data(){}
+    public Model(){}
 
-/*    Ordering_data() {
+/*  public Model() {
         Worker pupkin = new Worker("А.", "Пупкин");
         Worker krivenko = new Worker("С.", "Кривенко");
         Worker gaychenov = new Worker("П.", "Гайченов");
@@ -37,14 +38,14 @@ public class Ordering_data {
         Product rulet_s_izumom = new Product("Рулет с изюмом", 75, 15);
         Product pirog_s_povidlom = new Product("Пирог с повидлом", 60, 13);
         Product pirog_s_yablokami = new Product("Пирог с яблоками", 60, 13);
-        Product salat_izumenka = new Product("Салат изюменка", 100, 35);
-        Product salat_lukoshko = new Product("Салат лукошко", 100, 40);
+        Product salat_izumenka = new Product("Салат Изюминка", 100, 35);
+        Product salat_lukoshko = new Product("Салат Лукошко", 100, 40);
         Product salat_kopustniy_s_pomidorom = new Product("Салат капустный с помидором", 100, 19);
         Product sup_harcho_s_govyadinoy = new Product("Суп харчо с говядиной", 250, 31);
         Product sup_kuriniy_s_gribami = new Product("Суп куриный с грибами", 250, 34);
         Product sup_bolgarskiy_vegetarianskiy = new Product("Суп болгарский вегетарианский", 250, 21);
         Product ribnoe_file_s_pomidorkoy = new Product("Рыбное филе с помидоркой", 80, 54);
-        Product pechen_po_korolevski = new Product("Печень по королевски", 54, 54);
+        Product pechen_po_korolevski = new Product("Печень по-королевски", 150, 54);
         Product svinina_zapechenaya = new Product("Свинина запеченная \"По-гусарски\"", 80, 68);
         Product grecha_s_maslom = new Product("Греча с маслом", 170, 17);
         Product makarony_otvarnye = new Product("Макароны отварные", 170, 15);
@@ -83,7 +84,7 @@ public class Ordering_data {
 
     @Override
     public String toString() {
-        return "Ordering_data{" +
+        return "Model{" +
                 "workers_list=" + workers_list +
                 ", products_list=" + products_list +
                 '}';

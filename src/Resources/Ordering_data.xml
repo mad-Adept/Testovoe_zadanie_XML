@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Ordering_data>
+<Model>
     <workers_list>
         <firstName>А.</firstName>
         <secondName>Пупкин</secondName>
         <menu>
             <entry>
                 <key>
-                    <name>Печень по королевски</name>
-                    <weight>54</weight>
+                    <name>Печень по-королевски</name>
+                    <weight>150</weight>
                     <price>54</price>
                 </key>
                 <value>1</value>
@@ -30,7 +30,7 @@
             </entry>
             <entry>
                 <key>
-                    <name>Салат изюменка</name>
+                    <name>Салат Изюминка</name>
                     <weight>100</weight>
                     <price>35</price>
                 </key>
@@ -60,7 +60,7 @@
             </entry>
             <entry>
                 <key>
-                    <name>Салат лукошко</name>
+                    <name>Салат Лукошко</name>
                     <weight>100</weight>
                     <price>40</price>
                 </key>
@@ -136,8 +136,8 @@
             </entry>
             <entry>
                 <key>
-                    <name>Печень по королевски</name>
-                    <weight>54</weight>
+                    <name>Печень по-королевски</name>
+                    <weight>150</weight>
                     <price>54</price>
                 </key>
                 <value>1</value>
@@ -152,7 +152,7 @@
             </entry>
             <entry>
                 <key>
-                    <name>Салат изюменка</name>
+                    <name>Салат Изюминка</name>
                     <weight>100</weight>
                     <price>35</price>
                 </key>
@@ -184,12 +184,12 @@
         <price>13</price>
     </products_list>
     <products_list>
-        <name>Салат изюменка</name>
+        <name>Салат Изюминка</name>
         <weight>100</weight>
         <price>35</price>
     </products_list>
     <products_list>
-        <name>Салат лукошко</name>
+        <name>Салат Лукошко</name>
         <weight>100</weight>
         <price>40</price>
     </products_list>
@@ -219,8 +219,8 @@
         <price>54</price>
     </products_list>
     <products_list>
-        <name>Печень по королевски</name>
-        <weight>54</weight>
+        <name>Печень по-королевски</name>
+        <weight>150</weight>
         <price>54</price>
     </products_list>
     <products_list>
@@ -243,4 +243,4 @@
         <weight>170</weight>
         <price>16</price>
     </products_list>
-</Ordering_data>
+</Model>

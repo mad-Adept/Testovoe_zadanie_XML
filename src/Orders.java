@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class Orders {
-    Ordering_data ordering_data = new Ordering_data();
+    Model ordering_data = new Model();
     ArrayList<String> products_list_name = new ArrayList<>();
 
     Orders() {
@@ -24,20 +24,20 @@ public class Orders {
         merger_servings();
         printSymbol("bottom");
         System.out.println();
-        System.out.println("|            Наименование продукта            |Порции   |Стоимость |");
-        for (int iter_name = 0; iter_name < products_list_name.size(); iter_name++){
+        System.out.println("|            Наименование продукта            |Порции   |   Цена   |");
+        for (int dish_name = 0; dish_name < products_list_name.size(); dish_name++){
             quantity = 0;
             price = 0;
             for (Worker workers : ordering_data.getWorkers_list()) {
                 for (Map.Entry<Product, Integer> products : workers.getMenu().entrySet()) {
-                    if (products.getKey().getName().equals(products_list_name.get(iter_name))) {
+                    if (products.getKey().getName().equals(products_list_name.get(dish_name))) {
                         quantity = quantity + products.getValue();
                         price = products.getKey().getPrice();
                     }
                 }
             }
             suma_zakaza = suma_zakaza + (quantity * price);
-            System.out.printf("|%-45s|%9d|%10d|\n", products_list_name.get(iter_name), quantity, price);
+            System.out.printf("|%-45s|%9d|%10d|\n", products_list_name.get(dish_name), quantity, price);
         }
         printSymbol("top");
         System.out.println();
@@ -75,7 +75,7 @@ public class Orders {
     private void merger_servings() {
         for (Worker workers : ordering_data.getWorkers_list()) {
             for (Map.Entry<Product, Integer> products : workers.getMenu().entrySet()){
-                if(chek_Product(products.getKey().getName())) break;
+                if(chek_Product(products.getKey().getName())) continue;
                 else products_list_name.add(products.getKey().getName());
             }
         }

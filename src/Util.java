@@ -8,30 +8,32 @@ public class Util {
 
     private final static String PATH = "src\\resources\\";
 
-    public void setData(Ordering_data data) {
+    public void setData(Model ordering_data) {
         try {
-            JAXBContext context = JAXBContext.newInstance(data.getClass());
+            JAXBContext context = JAXBContext.newInstance(ordering_data.getClass());
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
-            marshaller.marshal(data, new File(PATH + "Ordering_data.xml"));
+            marshaller.marshal(ordering_data, new File(PATH + "ordering_data.xml"));
         } catch (JAXBException e) {
             System.out.println("Исключение в методе setData класса Util," +
-                    " записи в файл по пути: src\\resources\\Ordering_data.xml");
+                    " записи в файл по пути: src\\resources\\ordering_data.xml");
+            e.printStackTrace();
         }
     }
 
-    public Ordering_data getData(Ordering_data data) throws JAXBException {
+    public Model getData(Model ordering_data) throws JAXBException {
         try {
-            JAXBContext context = JAXBContext.newInstance(data.getClass());
+            JAXBContext context = JAXBContext.newInstance(ordering_data.getClass());
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            data = (Ordering_data) unmarshaller.unmarshal(new File(PATH + "Ordering_data.xml"));
+            ordering_data = (Model) unmarshaller.unmarshal(new File(PATH + "ordering_data.xml"));
 
         } catch (JAXBException e) {
-            System.out.println("Исключение в методе setData класса Util," +
-                    " чтения в файл по пути: src\\resources\\Ordering_data.xml");
+            System.out.println("Исключение в методе getData класса Util," +
+                    " чтения из файла по пути: src\\resources\\ordering_data.xml");
+            e.printStackTrace();
         }
-            return data;
+            return ordering_data;
     }
 }
 
