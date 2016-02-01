@@ -1,26 +1,60 @@
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 
+/**
+ * Класс Product описывает блюда представленные в меню столовой.
+ */
 @XmlType(name = "Product", propOrder = {"name", "weight", "price"})
 public class Product implements Comparable<Product>{
+
+    /**
+     * Поле name содержит название блюда.
+     */
     private String name;
+
+    /**
+     * Поле weight содержит вес продукта.
+     */
     private int weight;
+
+    /**
+     * Поле price содержит цену продукта.
+     */
     private int price;
+
+    /**
+     * Коллекция namelist_products содержит имена всех добавленных продуктов.
+     */
     private static ArrayList<String> namelist_products = new ArrayList();
 
+    /**
+     * Пустой конструктор класса Product
+     */
     public Product() {
     }
 
+    /**
+     * Конструктор класса Product который содержит три поля:
+     * @param name имя
+     * @param weight вес
+     * @param price цена
+     * конструктор содержит проверку на имя продукта, если новый продукт уже существует, то возникнет сообщение:
+     *              "Продукт name, уже существует!"
+     */
     public Product(String name, int weight, int price) {
         if (check_name(name)){
             System.out.println("Product: " + name +  ", name already exists!");  }
-
         this.name = name;
         this.weight = weight;
         this.price = price;
         namelist_products.add(name);
     }
 
+    /**
+     * Метод check_name осуществляет проверку на совпадение имен из коллекции namelist_products.
+     * @param name поле имя передаваемое из конструктора Product
+     * @return возвращает true если такое имя уже существует и false если его еще нет.
+     */
     private boolean check_name (String name){
         for (String iterator : namelist_products){
             if (iterator.equals(name)) return true;

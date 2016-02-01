@@ -2,13 +2,22 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
-import java.util.Collections;
 
+/**
+ * Класс Model, содержит данные о продуктах и данные рабочих.
+ */
 @XmlRootElement(name = "Model")
 @XmlType(propOrder = {"workers_list", "products_list"})
 public class Model {
 
+    /**
+     * Коллекция workers_list содержит список рабочих с заказами.
+     */
     ArrayList<Worker> workers_list = new ArrayList<Worker>();
+
+    /**
+     * Коллекция products_list содержит список блюд.
+     */
     ArrayList<Product> products_list = new ArrayList<Product>();
     @XmlElement(name = "workers_list")
     public ArrayList<Worker> getWorkers_list() {
@@ -27,9 +36,16 @@ public class Model {
         this.products_list = products_list;
     }
 
+    /**
+     * Пустой конструктор класса Model
+     */
     public Model(){}
 
-/*  public Model() {
+    /**
+     * Конструктор создающий данные о рабочих и меню столовой. А также заполняет данными коллекции products_list и
+     * workers_list.
+     */
+ /* public Model() {
         Worker pupkin = new Worker("А.", "Пупкин");
         Worker krivenko = new Worker("С.", "Кривенко");
         Worker gaychenov = new Worker("П.", "Гайченов");
