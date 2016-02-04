@@ -1,5 +1,5 @@
 import javax.xml.bind.JAXBException;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -12,11 +12,6 @@ public class Orders {
      * Создание переменной ordering_data класса Model, для получения данных итз файла.
      */
     Model ordering_data = new Model();
-
-    /**
-     * Создание коллекции products_list_name для заполнения неповторяющихся имен блюд.
-     */
-    ArrayList<String> products_list_name = new ArrayList<>();
 
     /**
      * Конструктор кдасса Orders считывает данные в переменную ordering_data, с помощью метода getData
@@ -39,19 +34,19 @@ public class Orders {
         int price;
         int quantity;
         int suma_zakaza = 0;
-        merger_servings();
+        HashSet<String> products_list_name = merger_servings();
         printSymbol("bottom");
         System.out.println();
         System.out.println("|            Наименование продукта            | Порции  |   Цена   |");
         //Бежим по коллекции products_list_name и выбираем блюда.
-        for (int dish_name = 0; dish_name < products_list_name.size(); dish_name++){
+        for (String dish_name : products_list_name){
             quantity = 0;
             price = 0;
             //Бежим по рабочим и обрабатываем его меню заказов.
             for (Worker workers : ordering_data.getWorkers_list()) {
                 //Бежим по меню выбирая поля порций и цены.
                 for (Map.Entry<Product, Integer> products : workers.getMenu().entrySet()) {
-                    if (products.getKey().getName().equals(products_list_name.get(dish_name))) {
+                    if (products.getKey().getName().equals(dish_name)) {
                         quantity = quantity + products.getValue();
                         price = products.getKey().getPrice();
                     }
@@ -59,7 +54,7 @@ public class Orders {
             }
             //Считаем общую сумму заказов и выводим в таблицу.
             suma_zakaza = suma_zakaza + (quantity * price);
-            System.out.printf("|%-45s|%9d|%10d|\n", products_list_name.get(dish_name), quantity, price);
+            System.out.printf("|%-45s|%9d|%10d|\n", dish_name, quantity, price);
         }
         printSymbol("top");
         System.out.println();
@@ -99,28 +94,17 @@ public class Orders {
         }
 
     /**
-     * Метод merger_servings заполняет коллекцию products_list_name именами продуктов, бнз повторений.
+     * Метод merger_servings заполняет коллекцию products_list_name именами продуктов, без повторений.
      */
-    private void merger_servings() {
+    private HashSet<String> merger_servings() {
+        HashSet<String> products_list_name = new HashSet<>();
         for (Worker workers : ordering_data.getWorkers_list()) {
             for (Map.Entry<Product, Integer> products : workers.getMenu().entrySet()){
-                if(chek_Product(products.getKey().getName())) continue;
-                else products_list_name.add(products.getKey().getName());
+                products_list_name.add(products.getKey().getName());
             }
         }
+        return products_list_name;
     }
-
-    /**
-     * Метод check_name осуществляет проверку на совпадение блюд из коллекции products_list_name.
-     * @param product_name поле имя передаваемое из метода merger_servings.
-     * @return возвращает true если такое блюдо уже существует и false если его еще нет.
-     */
-    private boolean chek_Product(String product_name){
-           for (String p : products_list_name){
-               if(p.equals(product_name)) return true;
-           }
-            return false;
-        }
 
     /**
      * Метод printSymbol отрисовывает линию.
